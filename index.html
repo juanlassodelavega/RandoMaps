@@ -1,71 +1,71 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="RandoMaps genera destinos aleatorios para escapadas por Espana."
+      content="RandoMaps generates random getaways around Spain."
     />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
 
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
 
-    <title>RandoMaps | Inicio</title>
+    <title>RandoMaps | Home</title>
   </head>
 
   <body>
     <main class="container app-shell">
       <header class="row app-header">
         <div class="col-sm-4 col-md-4 text-center text-sm-left">
-          <a href="index.html" aria-label="Ir al inicio">
-            <img class="logo" src="images/logo.png" alt="Logo de RandoMaps" />
+          <a href="index.html" aria-label="Go to homepage">
+            <img class="logo" src="assets/images/logo.png" alt="RandoMaps logo" />
           </a>
         </div>
         <div class="col-sm-6 col-md-7">
           <h1>RandoMaps</h1>
-          <p class="tagline">Escapadas aleatorias para redescubrir Espana</p>
+          <p class="tagline">Random getaways to rediscover Spain</p>
         </div>
         <div class="col-sm-2 col-md-1 text-center app-actions">
-          <button class="icon-button" type="button" onclick="check()" aria-label="Entrar a tu cuenta">
-            <img src="images/userLogin.png" alt="Icono de acceso de usuario" />
+          <button class="icon-button" type="button" onclick="goToAccount()" aria-label="Open your account">
+            <img src="assets/images/userLogin.png" alt="User access icon" />
           </button>
-          <a href="mailto:contacto@randomaps.com" aria-label="Enviar email a soporte">
-            <img src="images/userContact.png" alt="Icono de contacto" />
+          <a href="mailto:contacto@randomaps.com" aria-label="Contact support by email">
+            <img src="assets/images/userContact.png" alt="Contact icon" />
           </a>
         </div>
       </header>
 
       <section class="row intro-section">
         <div class="col-md-12">
-          <h2>Que es RandoMaps</h2>
+          <h2>What Is RandoMaps</h2>
         </div>
         <div class="col-md-5">
           <p class="lead-text">
-            RandoMaps es una app de viajes con destino aleatorio dentro del territorio nacional, enfocada en impulsar el
-            turismo de pueblos y ciudades menos masificadas.
+            RandoMaps is a travel app that suggests random destinations across Spain, with a focus on promoting tourism in
+            smaller cities and less crowded towns.
           </p>
-          <button class="cta-button" type="button" onclick="RandoMaps()">Quiero mi destino aleatorio</button>
+          <button class="cta-button" type="button" onclick="generateRandomTrip()">Generate My Random Destination</button>
         </div>
         <div class="col-md-7">
-          <p id="randomTitle" class="random-title">Pulsa el boton para empezar la aventura.</p>
+          <p id="randomTitle" class="random-title">Click the button to start your next adventure.</p>
           <div id="random" class="map-wrap" aria-live="polite"></div>
         </div>
       </section>
 
       <footer class="row">
         <div class="col-md-12">
-          <p class="footer-text">RandoMaps © 2026. Todos los derechos reservados.</p>
+          <p class="footer-text">RandoMaps © 2026. All rights reserved.</p>
         </div>
       </footer>
     </main>
 
-    <script src="js/common.js"></script>
-    <script src="js/index.js"></script>
+    <script src="assets/js/core/common.js"></script>
+    <script src="assets/js/pages/home.js"></script>
   </body>
 </html>

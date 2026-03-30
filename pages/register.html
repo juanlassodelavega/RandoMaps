@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
+
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+
+    <title>RandoMaps | Register</title>
+  </head>
+
+  <body>
+    <main class="container app-shell">
+      <header class="row app-header">
+        <div class="col-sm-4 col-md-4 text-center text-sm-left">
+          <a href="../index.html" aria-label="Back to homepage">
+            <img class="logo" src="../assets/images/logo.png" alt="RandoMaps logo" />
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-7">
+          <h1>RandoMaps</h1>
+          <p class="tagline">Create your account and start traveling</p>
+        </div>
+        <div class="col-sm-2 col-md-1 text-center app-actions">
+          <a href="mailto:contacto@randomaps.com" aria-label="Contact support by email">
+            <img src="../assets/images/userContact.png" alt="Contact icon" />
+          </a>
+        </div>
+      </header>
+
+      <section class="row">
+        <div class="col-md-12 text-center">
+          <img src="../assets/images/register.png" alt="Register user" class="auth-avatar" />
+          <h2>Register</h2>
+        </div>
+      </section>
+
+      <section class="row">
+        <div class="col-md-12">
+          <form id="registerForm" class="register-grid" novalidate>
+            <div>
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" autocomplete="given-name" required />
+            </div>
+            <div>
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" autocomplete="family-name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" autocomplete="new-password" required />
+            </div>
+            <div>
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" autocomplete="nickname" required />
+            </div>
+            <div>
+              <label for="birthDate">Birth Date</label>
+              <input type="date" class="form-control" id="birthDate" required />
+            </div>
+            <div class="register-actions">
+              <button type="submit" class="cta-button">Create Account</button>
+            </div>
+            <p id="registerMessage" class="app-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <footer class="row">
+        <div class="col-md-12">
+          <p class="footer-text">RandoMaps © 2026. All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../assets/js/core/common.js"></script>
+    <script src="../assets/js/pages/register.js"></script>
+  </body>
+</html>

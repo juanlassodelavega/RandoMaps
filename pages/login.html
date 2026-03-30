@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
 
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
@@ -19,20 +19,20 @@
     <main class="container app-shell">
       <header class="row app-header">
         <div class="col-sm-4 col-md-4 text-center text-sm-left">
-          <a href="index.html" aria-label="Volver al inicio">
-            <img class="logo" src="images/logo.png" alt="Logo de RandoMaps" />
+          <a href="../index.html" aria-label="Back to homepage">
+            <img class="logo" src="../assets/images/logo.png" alt="RandoMaps logo" />
           </a>
         </div>
         <div class="col-sm-6 col-md-7">
           <h1>RandoMaps</h1>
-          <p class="tagline">Accede para planear tu siguiente ruta</p>
+          <p class="tagline">Sign in to plan your next route</p>
         </div>
         <div class="col-sm-2 col-md-1 text-center app-actions">
-          <a href="registro.html" aria-label="Ir a registro">
-            <img src="images/userRegister.png" alt="Icono de registro" />
+          <a href="register.html" aria-label="Go to sign up">
+            <img src="../assets/images/userRegister.png" alt="Sign up icon" />
           </a>
-          <a href="mailto:contacto@randomaps.com" aria-label="Enviar email a soporte">
-            <img src="images/userContact.png" alt="Icono de contacto" />
+          <a href="mailto:contacto@randomaps.com" aria-label="Contact support by email">
+            <img src="../assets/images/userContact.png" alt="Contact icon" />
           </a>
         </div>
       </header>
@@ -40,16 +40,16 @@
       <section class="row">
         <div class="col-md-12">
           <div class="auth-card">
-            <img src="images/user.png" alt="Avatar de usuario" class="auth-avatar" />
-            <h2>Iniciar sesion</h2>
+            <img src="../assets/images/user.png" alt="User avatar" class="auth-avatar" />
+            <h2>Sign In</h2>
             <form id="loginForm" novalidate>
-              <label for="email">E-mail</label>
+              <label for="email">Email</label>
               <input type="email" class="form-control" id="email" autocomplete="email" required />
 
-              <label for="password">Contrasena</label>
+              <label for="password">Password</label>
               <input type="password" class="form-control" id="password" autocomplete="current-password" required />
 
-              <button type="submit" class="cta-button">Entrar</button>
+              <button type="submit" class="cta-button">Sign In</button>
             </form>
             <p id="loginMessage" class="app-message" aria-live="polite"></p>
           </div>
@@ -58,12 +58,12 @@
 
       <footer class="row">
         <div class="col-md-12">
-          <p class="footer-text">RandoMaps © 2026. Todos los derechos reservados.</p>
+          <p class="footer-text">RandoMaps © 2026. All rights reserved.</p>
         </div>
       </footer>
     </main>
 
-    <script src="js/common.js"></script>
-    <script src="js/login.js"></script>
+    <script src="../assets/js/core/common.js"></script>
+    <script src="../assets/js/pages/login.js"></script>
   </body>
 </html>
