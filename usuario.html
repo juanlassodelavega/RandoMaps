@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,115 +12,104 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
 
-    <title>RandoMaps</title>
+    <title>RandoMaps | Usuario</title>
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <br />
-          <a href="index.html">
-            <img src="images/logo.png" />
+    <main class="container app-shell">
+      <header class="row app-header">
+        <div class="col-sm-4 col-md-4 text-center text-sm-left">
+          <a href="index.html" aria-label="Volver al inicio">
+            <img class="logo" src="images/logo.png" alt="Logo de RandoMaps" />
           </a>
         </div>
-        <div class="col-md-7">
-          <br />
-          <br />
+        <div class="col-sm-6 col-md-7">
           <h1>RandoMaps</h1>
+          <p class="tagline">Tu panel de viaje personalizado</p>
         </div>
-        <div class="col-md-1">
-          <center>
-            <br />
-            <a href="#" onclick="logout()">
-              <img src="./images/userLogout.png" />
-            </a>
-            <a href="mailto:contacto@randomaps.com">
-              <img src="./images/userContact.png" />
-            </a>
-          </center>
+        <div class="col-sm-2 col-md-1 text-center app-actions">
+          <button class="icon-button" type="button" onclick="logout()" aria-label="Cerrar sesion">
+            <img src="images/userLogout.png" alt="Icono de cerrar sesion" />
+          </button>
+          <a href="mailto:contacto@randomaps.com" aria-label="Enviar email a soporte">
+            <img src="images/userContact.png" alt="Icono de contacto" />
+          </a>
         </div>
-        <div class="col-md-12">
-          <hr />
-        </div>
-      </div>
-    </div>
+      </header>
 
-    <div class="container">
-      <div class="row">
+      <section class="row">
         <div class="col-md-12">
           <h2 id="usuario"></h2>
-          <!-- <h2 id="usuario">Bienvenid@, </h2> -->
+          <h3>Elige tus filtros y genera tu proxima escapada</h3>
+        </div>
+      </section>
+
+      <section class="row user-panel">
+        <div class="col-md-4">
+          <label for="distancia">Distancia</label>
+          <select class="form-control" id="distancia">
+            <option>Selecciona distancia</option>
+            <option>0 - 50</option>
+            <option>50 - 100</option>
+            <option>100 - 150</option>
+            <option>150 - 200</option>
+            <option>200 - 250</option>
+            <option>250+</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="huesped">Viajeros</label>
+          <select class="form-control" id="huesped">
+            <option>Selecciona viajeros</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5+</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="habitantes">Habitantes</label>
+          <select class="form-control" id="habitantes">
+            <option>Selecciona poblacion</option>
+            <option>0 - 1000</option>
+            <option>1000 - 2000</option>
+            <option>2000 - 3000</option>
+            <option>3000 - 4000</option>
+            <option>4000 - 5000</option>
+            <option>5000+</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="noches">Noches</label>
+          <select class="form-control" id="noches">
+            <option>Selecciona noches</option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3+</option>
+          </select>
+        </div>
+        <div class="col-md-4 user-actions">
+          <button type="button" class="cta-button" onclick="RandoMaps()">Generar viaje</button>
         </div>
         <div class="col-md-12">
-          <h3>Elige los filtros y ¡Vamonos de viaje!</h3>
-          <br />
-        </div>
-        <div class="col-md-3">
-          <center>
-            <div class="form-group">
-              <select class="form-control" id="distancia">
-                <option>¿Cuántos kilómetros?</option>
-                <option>0 - 50</option>
-                <option>50 - 100</option>
-                <option>100 - 150</option>
-                <option>150 - 200</option>
-                <option>200 - 250</option>
-                <option>250+</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select class="form-control" id="huesped">
-                <option>¿Cuántos sois?</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5+</option>
-              </select>
-            </div>
-          </center>
-        </div>
-        <div class="col-md-3">
-          <center>
-            <div class="form-group">
-              <select class="form-control" id="habitantes">
-                <option>¿Cuántos habitantes?</option>
-                <option>0 - 1000</option>
-                <option>1000 - 2000</option>
-                <option>2000 - 3000</option>
-                <option>3000 - 4000</option>
-                <option>4000 - 5000</option>
-                <option>5000+</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select class="form-control" id="habitantes">
-                <option>¿Cuántas noches?</option>
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3+</option>
-              </select>
-            </div>
-            <br />
-            <button onclick="RandoMaps()">¡Vamonos de viaje!</button>
-          </center>
-          <br />
-        </div>
-        <div class="col-md-6">
-          <center>
-            <p id="random"></p>
-          </center>
+          <p id="userMessage" class="app-message" aria-live="polite"></p>
         </div>
         <div class="col-md-12">
-          <br />
-          <h4 align="center">
-            RandoMaps © 2020 © . Todos los derechos reservados.
-          </h4>
+          <p id="randomTitle" class="random-title"></p>
+          <div id="random" class="map-wrap" aria-live="polite"></div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <footer class="row">
+        <div class="col-md-12">
+          <p class="footer-text">RandoMaps © 2026. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="js/common.js"></script>
     <script src="js/usuario.js"></script>
   </body>
 </html>

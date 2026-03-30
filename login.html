@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,74 +12,58 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
 
-    <title>RandoMaps</title>
+    <title>RandoMaps | Login</title>
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <br />
-          <a href="index.html">
-            <img src="images/logo.png" />
+    <main class="container app-shell">
+      <header class="row app-header">
+        <div class="col-sm-4 col-md-4 text-center text-sm-left">
+          <a href="index.html" aria-label="Volver al inicio">
+            <img class="logo" src="images/logo.png" alt="Logo de RandoMaps" />
           </a>
         </div>
-        <div class="col-md-7">
-          <br />
-          <br />
+        <div class="col-sm-6 col-md-7">
           <h1>RandoMaps</h1>
+          <p class="tagline">Accede para planear tu siguiente ruta</p>
         </div>
-        <div class="col-md-1">
-          <center>
-            <br />
-            <a href="registro.html">
-              <img src="./images/userRegister.png" />
-            </a>
-            <a href="mailto:contacto@randomaps.com">
-              <img src="./images/userContact.png" />
-            </a>
-          </center>
+        <div class="col-sm-2 col-md-1 text-center app-actions">
+          <a href="registro.html" aria-label="Ir a registro">
+            <img src="images/userRegister.png" alt="Icono de registro" />
+          </a>
+          <a href="mailto:contacto@randomaps.com" aria-label="Enviar email a soporte">
+            <img src="images/userContact.png" alt="Icono de contacto" />
+          </a>
         </div>
-        <div class="col-md-12">
-          <hr />
-        </div>
-      </div>
-    </div>
+      </header>
 
-    <div class="container">
-      <div class="row">
+      <section class="row">
         <div class="col-md-12">
-          <center>
-            <img src="./images/user.png" />
-            <br />
-            <br />
-            <input
-              type="email"
-              class="form-control"
-              placeholder="E-mail"
-              id="email"
-            />
-            <br />
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Contraseña"
-              id="password"
-            />
-            <br />
-            <button type="submit" onclick="login()" value="Login">
-              Iniciar sesión
-            </button>
-          </center>
+          <div class="auth-card">
+            <img src="images/user.png" alt="Avatar de usuario" class="auth-avatar" />
+            <h2>Iniciar sesion</h2>
+            <form id="loginForm" novalidate>
+              <label for="email">E-mail</label>
+              <input type="email" class="form-control" id="email" autocomplete="email" required />
+
+              <label for="password">Contrasena</label>
+              <input type="password" class="form-control" id="password" autocomplete="current-password" required />
+
+              <button type="submit" class="cta-button">Entrar</button>
+            </form>
+            <p id="loginMessage" class="app-message" aria-live="polite"></p>
+          </div>
         </div>
+      </section>
+
+      <footer class="row">
         <div class="col-md-12">
-          <br />
-          <h4 align="center">
-            RandoMaps © 2020 © . Todos los derechos reservados.
-          </h4>
+          <p class="footer-text">RandoMaps © 2026. Todos los derechos reservados.</p>
         </div>
-      </div>
-    </div>
+      </footer>
+    </main>
+
+    <script src="js/common.js"></script>
     <script src="js/login.js"></script>
   </body>
 </html>

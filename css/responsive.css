@@ -1,5 +1,39 @@
+@media only screen and (max-width: 900px) {
+  .register-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    padding: 18px;
+  }
+
+  .app-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 @media only screen and (max-width: 600px) {
+  h1 {
+    margin-top: 8px;
+    font-size: 2.2rem;
+  }
+
+  .tagline {
+    font-size: 0.92rem;
+  }
+
+  .map-wrap {
+    min-height: 210px;
+  }
+
   iframe {
-    width: 450px;
+    width: 100%;
+    min-height: 240px;
+  }
+
+  .cta-button,
+  button {
+    width: 100%;
   }
 }

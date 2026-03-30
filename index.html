@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="RandoMaps genera destinos aleatorios para escapadas por Espana."
+    />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/responsive.css" />
@@ -12,67 +16,56 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
 
-    <title>RandoMaps</title>
+    <title>RandoMaps | Inicio</title>
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <center>
-            <br />
-            <a href="index.html">
-              <img src="images/logo.png" />
-            </a>
-          </center>
+    <main class="container app-shell">
+      <header class="row app-header">
+        <div class="col-sm-4 col-md-4 text-center text-sm-left">
+          <a href="index.html" aria-label="Ir al inicio">
+            <img class="logo" src="images/logo.png" alt="Logo de RandoMaps" />
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-7">
+          <h1>RandoMaps</h1>
+          <p class="tagline">Escapadas aleatorias para redescubrir Espana</p>
+        </div>
+        <div class="col-sm-2 col-md-1 text-center app-actions">
+          <button class="icon-button" type="button" onclick="check()" aria-label="Entrar a tu cuenta">
+            <img src="images/userLogin.png" alt="Icono de acceso de usuario" />
+          </button>
+          <a href="mailto:contacto@randomaps.com" aria-label="Enviar email a soporte">
+            <img src="images/userContact.png" alt="Icono de contacto" />
+          </a>
+        </div>
+      </header>
+
+      <section class="row intro-section">
+        <div class="col-md-12">
+          <h2>Que es RandoMaps</h2>
+        </div>
+        <div class="col-md-5">
+          <p class="lead-text">
+            RandoMaps es una app de viajes con destino aleatorio dentro del territorio nacional, enfocada en impulsar el
+            turismo de pueblos y ciudades menos masificadas.
+          </p>
+          <button class="cta-button" type="button" onclick="RandoMaps()">Quiero mi destino aleatorio</button>
         </div>
         <div class="col-md-7">
-          <!-- <br /> -->
-          <br />
-          <h1>RandoMaps</h1>
+          <p id="randomTitle" class="random-title">Pulsa el boton para empezar la aventura.</p>
+          <div id="random" class="map-wrap" aria-live="polite"></div>
         </div>
-        <div class="col-md-1">
-          <center>
-            <br />
-            <a href="#" onclick="check()">
-              <img src="./images/userLogin.png" />
-            </a>
-            <a href="mailto:contacto@randomaps.com">
-              <img src="./images/userContact.png" />
-            </a>
-          </center>
-        </div>
+      </section>
+
+      <footer class="row">
         <div class="col-md-12">
-          <hr />
-          <br />
-          <h2>¿Qué es RandoMaps?</h2>
+          <p class="footer-text">RandoMaps © 2026. Todos los derechos reservados.</p>
         </div>
-        <div class="col-md-6">
-          <h3>
-            RandoMaps es una aplicación de viajes con destino aleatorio dentro
-            del territorio nacional, con principal interés en los pueblos de la
-            España vacía. Lo que se pretende es fomentar el turismo nacional y
-            potenciar el turismo de la España vacía, creando viajes aleatorios a
-            dichos destinos.
-          </h3>
-          <center>
-            <button onclick="RandoMaps()">¡Vamonos de viaje!</button>
-          </center>
-        </div>
-        <div class="col-md-6">
-          <center>
-            <br />
-            <p id="random"></p>
-          </center>
-        </div>
-        <div class="col-md-12">
-          <br />
-          <h4 align="center">
-            RandoMaps © 2020 © . Todos los derechos reservados.
-          </h4>
-        </div>
-      </div>
-    </div>
+      </footer>
+    </main>
+
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
   </body>
-  <script src="js/index.js"></script>
 </html>

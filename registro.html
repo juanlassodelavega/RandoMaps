@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,107 +12,78 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
 
-    <title>RandoMaps</title>
+    <title>RandoMaps | Registro</title>
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <br />
-          <a href="index.html">
-            <img src="images/logo.png" />
+    <main class="container app-shell">
+      <header class="row app-header">
+        <div class="col-sm-4 col-md-4 text-center text-sm-left">
+          <a href="index.html" aria-label="Volver al inicio">
+            <img class="logo" src="images/logo.png" alt="Logo de RandoMaps" />
           </a>
         </div>
-        <div class="col-md-7">
-          <br />
-          <br />
+        <div class="col-sm-6 col-md-7">
           <h1>RandoMaps</h1>
+          <p class="tagline">Crea tu cuenta y empieza a viajar</p>
         </div>
-        <div class="col-md-1">
-          <center>
-            <br />
-            <a href="mailto:contacto@randomaps.com">
-              <img src="./images/userContact.png" />
-            </a>
-          </center>
+        <div class="col-sm-2 col-md-1 text-center app-actions">
+          <a href="mailto:contacto@randomaps.com" aria-label="Enviar email a soporte">
+            <img src="images/userContact.png" alt="Icono de contacto" />
+          </a>
         </div>
+      </header>
+
+      <section class="row">
+        <div class="col-md-12 text-center">
+          <img src="images/register.png" alt="Registro de usuario" class="auth-avatar" />
+          <h2>Registro</h2>
+        </div>
+      </section>
+
+      <section class="row">
         <div class="col-md-12">
-          <hr />
+          <form id="registroForm" class="register-grid" novalidate>
+            <div>
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" autocomplete="given-name" required />
+            </div>
+            <div>
+              <label for="apellidos">Apellidos</label>
+              <input type="text" class="form-control" id="apellidos" autocomplete="family-name" required />
+            </div>
+            <div>
+              <label for="email">E-mail</label>
+              <input type="email" class="form-control" id="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="password">Contrasena</label>
+              <input type="password" class="form-control" id="password" autocomplete="new-password" required />
+            </div>
+            <div>
+              <label for="usuario">Usuario</label>
+              <input type="text" class="form-control" id="usuario" autocomplete="nickname" required />
+            </div>
+            <div>
+              <label for="fecha">Fecha de nacimiento</label>
+              <input type="date" class="form-control" id="fecha" required />
+            </div>
+            <div class="register-actions">
+              <button type="submit" class="cta-button">Registrarme ahora</button>
+            </div>
+            <p id="registroMessage" class="app-message" aria-live="polite"></p>
+          </form>
         </div>
+      </section>
+
+      <footer class="row">
         <div class="col-md-12">
-          <center>
-            <img src="./images/register.png" />
-          </center>
+          <p class="footer-text">RandoMaps © 2026. Todos los derechos reservados.</p>
         </div>
-        <center>
-          <div class="col-md-4">
-            <br />
-            <h4>Nombre</h4>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Nombre"
-              id="nombre"
-            />
-            <br />
-            <h4>Apellidos</h4>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Apellidos"
-              id="apellidos"
-            />
-          </div>
-          <div class="col-md-4">
-            <br />
-            <h4>E-mail</h4>
-            <input
-              type="email"
-              class="form-control"
-              placeholder="E-mail"
-              id="email"
-            />
-            <br />
-            <h4>Contraseña</h4>
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Contraseña"
-              id="password"
-            />
-          </div>
-          <div class="col-md-4">
-            <br />
-            <h4>Usuario</h4>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Usuario"
-              id="usuario"
-            />
-            <br />
-            <h4>Fecha de nacimiento</h4>
-            <input type="date" class="form-control" id="fecha" />
-          </div>
-        </center>
-        <div class="col-md-12">
-          <center>
-            <br />
-            <br />
-            <button type="submit" onclick="registro()">
-              ¡Registrate ahora!
-            </button>
-          </center>
-        </div>
-        <div class="col-md-12">
-          <br />
-          <h4 align="center">
-            RandoMaps © 2020 © . Todos los derechos reservados.
-          </h4>
-        </div>
-      </div>
-    </div>
+      </footer>
+    </main>
+
+    <script src="js/common.js"></script>
     <script src="js/registro.js"></script>
   </body>
 </html>

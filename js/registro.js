@@ -1,53 +1,59 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyCToyik8gq3vMEkKCQdGJQtzw_-_Roskek",
-  authDomain: "randomaps-e23df.firebaseapp.com",
-  projectId: "randomaps-e23df",
-  storageBucket: "randomaps-e23df.appspot.com",
-  messagingSenderId: "249660335211",
-  appId: "1:249660335211:web:68adbbdb85ea149ed1bd2e",
-  measurementId: "G-CSH4J8ZT2M",
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-
-var db = firebase.firestore();
-var nuevoID;
-
 function registro() {
-  var nombre = document.getElementById("nombre").value;
-  var apellidos = document.getElementById("apellidos").value;
-  var usuario = document.getElementById("usuario").value;
+  var nombre = document.getElementById("nombre").value.trim();
+  var apellidos = document.getElementById("apellidos").value.trim();
+  var usuario = document.getElementById("usuario").value.trim();
   var password = document.getElementById("password").value;
-  var email = document.getElementById("email").value;
+  var email = document.getElementById("email").value.trim();
   var fecha = document.getElementById("fecha").value;
+
+  if (!nombre || !apellidos || !usuario || !password || !email || !fecha) {
+    setMessage("registroMessage", "Completa todos los campos para registrarte.", "error");
+    return;
+  }
+
+  if (password.length < 6) {
+    setMessage("registroMessage", "La contrasena debe tener al menos 6 caracteres.", "error");
+    return;
+  }
+
+  setMessage("registroMessage", "Creando cuenta...", "info");
 
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then((user) => {
-      // Signed in
-      // ...
+    .then(function (credential) {
+      return db.collection("users").doc(credential.user.uid).set({
+        nombre: nombre,
+        apellidos: apellidos,
+        usuario: usuario,
+        email: email,
+        fecha: fecha,
+        creadoEn: firebase.firestore.FieldValue.serverTimestamp(),
+      });
     })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ..
-    });
-
-  db.collection("users")
-    .add({
-      nombre: nombre,
-      apellidos: apellidos,
-      usuario: usuario,
-      email: email,
-      fecha: fecha,
-    })
-    .then(function (docRef) {
-      console.log("Document written with ID: ", docRef.id);
+    .then(function () {
+      setMessage("registroMessage", "Registro completado. Redirigiendo a login...", "success");
       location.href = "login.html";
     })
     .catch(function (error) {
-      console.error("Error adding document: ", error);
+      var knownErrors = {
+        "auth/email-already-in-use": "Ese email ya esta registrado.",
+        "auth/invalid-email": "El email no tiene un formato valido.",
+        "auth/weak-password": "La contrasena es demasiado debil.",
+      };
+      setMessage("registroMessage", knownErrors[error.code] || "No se pudo completar el registro.", "error");
     });
 }
+
+window.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("registroForm");
+
+  if (!form) {
+    return;
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    registro();
+  });
+});
